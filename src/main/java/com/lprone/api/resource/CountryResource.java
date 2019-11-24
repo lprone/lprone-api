@@ -25,7 +25,7 @@ public class CountryResource {
     }
 
     @GetMapping("/country/{name}")
-    public ResponseEntity<Country> getCountryByName(@PathVariable(value = "id") String name) throws Exception {
+    public ResponseEntity<Country> getCountryByName(@PathVariable(value = "name") String name) throws Exception {
         System.out.println("getPersonById " + name);
 
         Country person = countryRepository
@@ -44,8 +44,8 @@ public class CountryResource {
         return countryRepository.save(country);
     }
 
-    @PutMapping("/country/{id}")
-    public ResponseEntity<Country> updateCountry(@PathVariable(value = "id") Long userId, @Valid @ModelAttribute Country country) {
+    @PutMapping("/country/{name}")
+    public ResponseEntity<Country> updateCountry(@PathVariable(value = "name") Long userId, @Valid @ModelAttribute Country country) {
         System.out.println("updateCountry "+ userId + " - " + country);
 
         final Country updatedCountry = countryRepository.save(country);
@@ -54,7 +54,7 @@ public class CountryResource {
     }
 
     @DeleteMapping("/country/{name}")
-    public Map<String, Boolean> deleteCountry(@PathVariable(value = "id") String name) throws Exception {
+    public Map<String, Boolean> deleteCountry(@PathVariable(value = "name") String name) throws Exception {
         System.out.println("deleteCountry " + name);
         Country country = countryRepository
                 .findById(name)
