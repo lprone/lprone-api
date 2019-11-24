@@ -12,4 +12,4 @@ pluginManagement {
 		}
 	}
 }
-rootProject.name = 'personApiServer'
+rootProject.name = 'api'
